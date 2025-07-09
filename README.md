@@ -2,7 +2,8 @@
 
 Tired of Clicking 3 Buttons to Reset your Rush? Now it only takes 1!
 # Current Features
-- Custom Reset Key: Chose any keybind to instantly reset your level rush.
+- Custom Reset Key: Choose any keybind to instantly reset your level rush.
+- Level Lockout: Worried you might reset by accident? Disable Rush Reset Key upon reaching whichever level you pick!
 
 # Installation and Usage
 - Install MelonLoader and add to your Neon White installation. Make sure you use v0.6.1.
