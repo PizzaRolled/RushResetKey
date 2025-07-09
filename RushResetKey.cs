@@ -8,7 +8,7 @@ namespace RushResetKey
     {
         internal static Game Game { get; private set; }
         internal static MainMenu MainMenu { get; private set; }
-        internal static bool Resetting { get; private set; } = false;
+        private static bool Resetting = false;
 
         public override void OnLateInitializeMelon()
         {
@@ -25,7 +25,7 @@ namespace RushResetKey
 
         public static void SigmaReset()
         {
-            if (LevelRush.IsLevelRush() && !RushResetKey.Resetting && Settings.Enabled.Value)
+            if (LevelRush.IsLevelRush() && Settings.Enabled.Value)
             {
                 MainMenu.PauseGameNoStateChange(false);
                 Singleton<Audio>.Instance.StopMusic(0f);
@@ -36,9 +36,9 @@ namespace RushResetKey
         }
         public override void OnUpdate()
         {
-            if (InputManager.GetKeyDown(Settings.ResetKey.Value))
+            if (InputManager.GetKeyDown(Settings.ResetKey.Value) && !Resetting)
                 SigmaReset();
-            if (InputManager.GetKeyUp(UnityEngine.KeyCode.Semicolon))
+            else
                 Resetting = false;
 
         }
